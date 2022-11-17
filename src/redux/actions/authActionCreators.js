@@ -26,7 +26,7 @@ export const loginUser = (data, onSuccess, onError) => ({
 
 export const logoutUser = () => {
     localStorage.removeItem('USER_INFO');
-    return { type: constants.RESET_USER_INFO };
+    return {type: constants.RESET_USER_INFO};
 };
 
 const setUserInfo = (data) => {
@@ -38,5 +38,5 @@ const setUserInfo = (data) => {
         isLoggedIn: true
     };
     localStorage.setItem('USER_INFO', JSON.stringify(userInfo));
-    return { type: constants.SET_USER_INFO, payload: userInfo };
+    return {type: constants.SET_USER_INFO, payload: userInfo};
 };

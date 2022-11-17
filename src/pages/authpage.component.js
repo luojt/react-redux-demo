@@ -5,13 +5,13 @@ import RegisterForm from '../components/register.component';
 const AuthPage = () => (
     <div className="row justify-content-between">
         <div className="col-md-5">
-            <LoginForm />
+            <LoginForm/>
         </div>
 
-        <div style={{ border: '1px solid #ababab' }}></div>
+        <div style={{border: '1px solid #ababab'}}></div>
 
         <div className="col-md-6">
-            <RegisterForm />
+            <RegisterForm/>
         </div>
     </div>
 );

@@ -11,7 +11,7 @@ export default function notesReducer(state = [], action) {
         case constants.UPDATE_NOTE:
             return state.map(item => {
                 if (item._id === action.payload.noteId)
-                    return { ...item, ...action.payload.data };
+                    return {...item, ...action.payload.data};
                 else
                     return item;
             });

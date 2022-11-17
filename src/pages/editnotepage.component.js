@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
+import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
+import {toast} from 'react-toastify';
 
-import { createNote, getNoteById, updateNoteById } from './../redux/actions/notesActionCreators';
+import {createNote, getNoteById, updateNoteById} from './../redux/actions/notesActionCreators';
 
-const EditNotePage = ({ match, history, dispatchCreateNoteAction, dispatchGetNoteByIdAction, dispatchUpdateNoteAction }) => {
+const EditNotePage = ({
+                          match,
+                          history,
+                          dispatchCreateNoteAction,
+                          dispatchGetNoteByIdAction,
+                          dispatchUpdateNoteAction
+                      }) => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [error, setError] = useState({ title: false, content: false, description: false, category: false });
+    const [error, setError] = useState({title: false, content: false, description: false, category: false});
 
     useEffect(() => {
-        const { noteId } = match.params;
+        const {noteId} = match.params;
         if (noteId) {
-            dispatchGetNoteByIdAction(noteId, ({ title, content, description, category }) => {
+            dispatchGetNoteByIdAction(noteId, ({title, content, description, category}) => {
                 setTitle(title);
                 setContent(content);
                 setDescription(description);
@@ -28,8 +34,8 @@ const EditNotePage = ({ match, history, dispatchCreateNoteAction, dispatchGetNot
         event.preventDefault();
         if (isFormInvalid()) updateErrorFlags();
         else {
-            const { noteId } = match.params;
-            const data = { title, content, description, category };
+            const {noteId} = match.params;
+            const data = {title, content, description, category};
             if (noteId) {
                 dispatchUpdateNoteAction(noteId, data, () => {
                     toast.success('Note updated Successfully!');
@@ -47,7 +53,7 @@ const EditNotePage = ({ match, history, dispatchCreateNoteAction, dispatchGetNot
     const isFormInvalid = () => (!title.trim() || !content.trim() || !description.trim() || !category);
 
     const updateErrorFlags = () => {
-        const errObj = { title: false, content: false, description: false, category: false };
+        const errObj = {title: false, content: false, description: false, category: false};
         if (!title.trim()) errObj.title = true;
         if (!content.trim()) errObj.content = true;
         if (!description.trim()) errObj.description = true;
@@ -68,43 +74,43 @@ const EditNotePage = ({ match, history, dispatchCreateNoteAction, dispatchGetNot
                         <div className="form-group">
                             <label htmlFor="title">Title</label>
                             <input noValidate id="title"
-                                type="text"
-                                placeholder="Title"
-                                name="title"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                className={`form-control ${error.title ? 'is-invalid' : ''}`} />
+                                   type="text"
+                                   placeholder="Title"
+                                   name="title"
+                                   value={title}
+                                   onChange={(e) => setTitle(e.target.value)}
+                                   className={`form-control ${error.title ? 'is-invalid' : ''}`}/>
                             <p className="invalid-feedback">Required</p>
                         </div>
                         <div className="form-group">
                             <label htmlFor="content">Content</label>
                             <input noValidate id="content"
-                                type="text"
-                                placeholder="Content"
-                                name="content"
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                className={`form-control ${error.content ? 'is-invalid' : ''}`} />
+                                   type="text"
+                                   placeholder="Content"
+                                   name="content"
+                                   value={content}
+                                   onChange={(e) => setContent(e.target.value)}
+                                   className={`form-control ${error.content ? 'is-invalid' : ''}`}/>
                             <p className="invalid-feedback">Required</p>
                         </div>
                         <div className="form-group">
                             <label htmlFor="description">Description</label>
                             <input noValidate id="description"
-                                type="text"
-                                placeholder="Description"
-                                name="description"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                className={`form-control ${error.description ? 'is-invalid' : ''}`} />
+                                   type="text"
+                                   placeholder="Description"
+                                   name="description"
+                                   value={description}
+                                   onChange={(e) => setDescription(e.target.value)}
+                                   className={`form-control ${error.description ? 'is-invalid' : ''}`}/>
                             <p className="invalid-feedback">Required</p>
                         </div>
                         <div className="form-group">
                             <label htmlFor="category">Category</label>
                             <select noValidate id="category"
-                                name="category"
-                                className={`form-control ${error.category ? 'is-invalid' : ''}`}
-                                value={category}
-                                onChange={(e) => setCategory(e.target.value)}>
+                                    name="category"
+                                    className={`form-control ${error.category ? 'is-invalid' : ''}`}
+                                    value={category}
+                                    onChange={(e) => setCategory(e.target.value)}>
                                 <option value="">-- Select --</option>
                                 <option value="GENERAL">General</option>
                                 <option value="IDPROOF">ID Proof</option>
@@ -115,10 +121,11 @@ const EditNotePage = ({ match, history, dispatchCreateNoteAction, dispatchGetNot
 
                         <div className="mt-5">
                             <button type="submit" className="btn btn-primary mr-2 btn-lg">
-                                Save                             </button>
+                                Save
+                            </button>
                             <button type="button"
-                                onClick={() => history.replace("/notes")}
-                                className="btn btn-secondary btn-lg">
+                                    onClick={() => history.replace("/notes")}
+                                    className="btn btn-secondary btn-lg">
                                 Cancel
                             </button>
                         </div>

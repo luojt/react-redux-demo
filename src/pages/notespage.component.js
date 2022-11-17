@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import NotesCollection from '../components/notescollection.component';
-import { fetchAllNotes } from './../redux/actions/notesActionCreators';
+import {fetchAllNotes} from './../redux/actions/notesActionCreators';
 
-const NotesPage = ({ loading, notes, dispatchFetchAllNotesAction }) => {
+const NotesPage = ({loading, notes, dispatchFetchAllNotesAction}) => {
 
     useEffect(() => dispatchFetchAllNotesAction(), [dispatchFetchAllNotesAction]);
 
@@ -17,7 +17,7 @@ const NotesPage = ({ loading, notes, dispatchFetchAllNotesAction }) => {
                 </div>
                 <div className="col-2">
                     <Link to="/edit-note" className="btn btn-primary">
-                        Create Note 
+                        Create Note
                     </Link>
                 </div>
             </div>
@@ -25,9 +25,9 @@ const NotesPage = ({ loading, notes, dispatchFetchAllNotesAction }) => {
             <div className="row mt-5">
                 <div className="col-12">
                     {
-                        notes.length > 0 ? <NotesCollection notes={notes} /> :
+                        notes.length > 0 ? <NotesCollection notes={notes}/> :
                             <div className="text-center mt-5">
-                                
+
                                 <h1 className="text-center">You don't have any notes</h1>
                             </div>
                     }

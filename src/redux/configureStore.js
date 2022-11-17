@@ -1,11 +1,11 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 
 import rootReducer from './reducers';
-import { apiMiddleware } from './middlewares';
+import {apiMiddleware} from './middlewares';
 
 export default function configureStore(initialState) {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    return createStore(rootReducer, 
+    return createStore(rootReducer,
         initialState,
-         composeEnhancers(applyMiddleware(apiMiddleware)));
+        composeEnhancers(applyMiddleware(apiMiddleware)));
 };

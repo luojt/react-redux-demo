@@ -65,7 +65,7 @@ const setAllNotes = (data) => ({
 
 const updateNote = (noteId, data) => ({
     type: constants.UPDATE_NOTE,
-    payload: { noteId, data }
+    payload: {noteId, data}
 });
 
 const removeNote = (noteId) => ({
