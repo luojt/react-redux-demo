@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="网站关键词" />
+	<meta name="description" content="网站描述" />
+	<meta name="referrer" content="no-referrer"/>
+	<!-- <meta name="viewport" content="user-scalable=yes"> -->
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+	<!-- 强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览； -->
+	<!-- width - viewport的宽度 height - viewport的高度   
+	initial-scale - 初始的缩放比例  
+	minimum-scale - 允许用户缩放到的最小比例   
+	maximum-scale - 允许用户缩放到的最大比例  
+	user-scalable - 用户是否可以手动缩放 -->
+
+	<!-- <meta http-equiv="X-Frame-Options" content="SAMEORIGIN/DENY"> -->
+	<!-- 防止页面被iframe引入 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!-- Edge模式告诉IE以最高级 模式渲染文档，任何IE版本都以当前版本所支持的最高级标准模式渲染，避免版本升级造成的影响。 -->
+	<meta http-equiv="Cache-Control" content="no-siteapp" /> <!-- 防止贴广告 -->
+	<meta name="format-detection" content="telephone=no"><!-- format-detection 启动或禁用自动识别页面中的电话号码 -->
+	<meta name="format-detection" content="email=no" /><!-- 忽略Android平台中对邮箱地址的识别 -->
+	<meta name="renderer" content="webkit"> <!-- 页面需默认用极速核 -->
+	<!-- 页面需默认用ie兼容内核<meta name="renderer" content="ie-comp"> -->
+	<!-- 页面需默认用ie标准内核<meta name="renderer" content="ie-stand">   -->
+
+	<!-- 自动将http的不安全请求修改为https请求,同时也会将ws自动转为wss,此处有坑 -->
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览, 删除默认的苹果工具栏和菜单栏。 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式； -->
+	<!-- 在web app应用下状态条（屏幕顶部条）的颜色；默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。
+	注意：若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。 -->
+	<title>复力运行工作台</title>
+</head>
+
+<body>
+	<div id="root"></div>
+</body>
+</html>
